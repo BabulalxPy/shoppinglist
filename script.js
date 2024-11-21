@@ -1,24 +1,31 @@
-const list = document.querySelector('ul');
-      const input = document.querySelector('input');
-      const button = document.querySelector('button');
+const ul = document.querySelector("ul");
+const ip = document.querySelector("input");
+const btn = document.querySelector("button");
 
-      button.addEventListener('click', () => {
-        const myItem = input.value;
-        input.value = '';
+function btnclick(){
 
-        const listItem = document.createElement('li');
-        const listText = document.createElement('span');
-        const listBtn = document.createElement('button');
+    const inputValue = ip.value;
+    ip.value = '';
+    console.log(inputValue);
 
-        listItem.appendChild(listText);
-        listText.textContent = myItem;
-        listItem.appendChild(listBtn);
-        listBtn.textContent = 'Delete';
-        list.appendChild(listItem);
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    const button = document.createElement("button");
 
-        listBtn.addEventListener('click', () => {
-          list.removeChild(listItem);
-        });
+    span.textContent = inputValue;
+    button.textContent = "delete" ;
+    
+    li.appendChild(span);
+    li.appendChild(button);
 
-        input.focus();
-      });
+    ul.appendChild(li);
+
+    button.addEventListener("click", () => {
+        li.remove();
+    });
+
+    ip.focus();
+    
+}
+
+btn.addEventListener("click", btnclick);
